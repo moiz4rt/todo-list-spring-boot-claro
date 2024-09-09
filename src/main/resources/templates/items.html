@@ -2,14 +2,33 @@
 <html xmlns:th="http://www.thymeleaf.org">
     <head>
         <title>Lista de Itens</title>
+        <link rel="shortcut icon" type="image/x-icon" th:href="@{/img/fav.png}">
+        <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
+        <script th:src="@{/js/script.js}"></script>
+        <style>
+            a.button {
+                margin-top: 20px;
+                display:block;
+                margin-inline: auto;
+                max-width:200px;
+                text-align:center;
+            }
+        </style>
     </head>
     <body>
-        <h1>Items</h1>
+        <header>
+            <h1>Items</h1>
+        </header>
+        <div>
+        <a class="button" href="/add">Adicionar Item</a>
         <ul>
-            <li th:each="item : ${items}">
+            <li th:each="item : ${items}" th:attr="data-id=${item.id}">
                 <p class="titulo" th:text="${item.titulo}">Titulo</p>
                 <p class="descricao" th:text="${item.descricao}">Descricao</p>
+                <button onclick="deleteItem(this)">DELETE</button>
+                <button onclick="updateItem(this)">UPDATE</button>
             </li>
         </ul>
+        </div>
     </body>
 </html>

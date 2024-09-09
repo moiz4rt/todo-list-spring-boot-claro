@@ -39,4 +39,27 @@ public class ItemServiceImplementation implements ItemService
     {
         return itemRepository.findAll();
     }
+
+    @Override
+    public boolean deleteItem(Long id)
+    {
+        if(itemRepository.existsById(id))
+        {
+            itemRepository.deleteById(id);
+            return true;
+        }
+        return false;
+    }
+
+    @Override
+public Item save(Item updatedItem) {
+    // Verifica se o item existe antes de tentar atualizá-lo
+    if(updatedItem.getId() == null || !itemRepository.existsById(updatedItem.getId())) {
+        throw new NoSuchElementException("Item not found with id: " + updatedItem.getId());
+    }
+
+    // Salva e retorna o item atualizado
+    return itemRepository.save(updatedItem);
+}
+
 }

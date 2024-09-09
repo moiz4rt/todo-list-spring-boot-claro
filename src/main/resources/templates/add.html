@@ -1,6 +1,22 @@
 <!DOCTYPE html>
 <html xlmns:th="http://www.htymeleaf.org">
 <head>
-
+    <title>Adicionar Item</title>
+    <link rel="shortcut icon" type="image/x-icon" th:href="@{/img/fav.png}">
+    <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
 </head>
+<body>
+    <h1>Adicionar Item</h1>
+    <form action="/add" method="POST">
+        <label for="titulo">
+            <span>Título</span>
+        <input id="titulo" type="text" name="titulo">
+        </label>
+        <label for="descricao">
+            <span>Descrição</span>
+        <input id="descricao" type="text" name="descricao">
+        </label>
+        <input type="submit" value="Adicionar">
+    </form>
+</body>
 </html>

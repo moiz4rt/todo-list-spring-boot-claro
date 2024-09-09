@@ -10,4 +10,8 @@ public interface ItemService
     Item create(Item newItem);
 
     List<Item> findAll();
+
+    boolean deleteItem(Long id);
+
+    Item save(Item updatedItem);
 }
